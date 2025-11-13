@@ -1,5 +1,5 @@
 """
-LOAD REAL MARKET DATA FROM ALPACA API
+LOAD REAL MARKET DATA FROM ALPACA API , RETURN DF WITH OHLCV BARS
 
 - 1 minute OHLCV (open, high, low, close, volume) bar data for specified tickers and date range
 - US Equities (9300 AM - 1600  EST trading hours)
