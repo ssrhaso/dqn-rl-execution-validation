@@ -67,12 +67,17 @@ class AlpacaDataLoader:
         # REQUEST
         try:
             
+            start_dt = datetime.strptime(start_date, "%Y-%m-%d")
+            end_dt = datetime.strptime(end_date, "%Y-%m-%d")
+            start_dt = start_dt.replace(hour=0, minute=0, second=0)
+            end_dt = end_dt.replace(hour=23, minute=59, second=59)
+            
             # CREATE REQUEST
             request = StockBarsRequest(
                 symbol_or_symbols = [symbol],
                 timeframe = self.TIMEFRAMES[timeframe],
-                start = datetime.strptime(start_date, "%Y-%m-%d"),
-                end = datetime.strptime(end_date, "%Y-%m-%d"),
+                start = start_dt,
+                end = end_dt,
                 limit = 10000
             )
             
