@@ -45,23 +45,17 @@ Thumbs.db
 *.code-workspace
 
 # Project-Specific - Generated Files
-# Logs (DO NOT COMMIT)
+# Logs 
 logs/
 *.log
 
-# Results & Data (DO NOT COMMIT - except in documentation)
+# Results & Data 
 results/validation_results.csv
 results/summary_report.txt
 results/visualizations/
 results/*.csv
 results/*.txt
 results/*.pkl
-
-# Models - OLD VERSIONS (keep only final)
-models/checkpoints/
-models/ppo_strategic_real_data.zip      # Old version
-models/ppo_strategic_stage*.zip         # Old versions
-models/dqn_guided_stage*.zip            # Old versions
 
 # Environment & Credentials (SECURITY)
 .env
