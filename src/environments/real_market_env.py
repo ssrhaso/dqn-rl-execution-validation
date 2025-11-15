@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 
 class RealMarketEnv(gym.Env):
     """
-    STATE SPACE (8 DIM):
+    STATE SPACE (9 DIM):
         1. NORM BEST BID (PROXY VWAP)
         2. NORM BEST ASK (PROXY VWAP)
         3. NORM SPREAD
@@ -24,6 +24,7 @@ class RealMarketEnv(gym.Env):
         6. CURRENT VOLATILITY
         7. EXECUTION PROGRESS (0 TO 1)
         8. NORM AVG EXECUTION PRICE
+        9. ADDITIONAL FEATURE (PLACEHOLDER)
         
     ACTION SPACE (3 DIM):
         0. WAIT (NO ACTION)
@@ -57,11 +58,11 @@ class RealMarketEnv(gym.Env):
         self.time_horizon = len(self.market_data)                               # Total time steps in episode   
         
         
-        # OBSERVATION SPACE (8 DIM)
+        # OBSERVATION SPACE (9 DIM)
         self.observation_space = spaces.Box(
             low = -np.inf,
             high = np.inf,
-            shape = (8,),# 8 DIM           
+            shape = (9,),# 9 DIM           
             dtype = np.float32
         )
         # ACTION SPACE (3 DIM)
@@ -177,7 +178,8 @@ class RealMarketEnv(gym.Env):
             inventory_remaining,
             current_volatility,
             execution_progress,
-            avg_execution_price_norm
+            avg_execution_price_norm,
+            0.05  
         ], dtype=np.float32)
         
         state = np.nan_to_num(state, nan=0.0, posinf=0.0, neginf=0.0)
